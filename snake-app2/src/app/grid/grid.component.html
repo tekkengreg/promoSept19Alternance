@@ -1,0 +1,27 @@
+<div class="matrix">
+  <div class="rows" *ngFor="let row of rows; let i = index">
+    <div class="columns" *ngFor="let column of columns; let j = index">
+      <app-cell [isActive]="isActiveCell(i, j)"></app-cell>
+    </div>
+  </div>
+  <app-pion
+    [ngStyle]="{
+      position: 'absolute',
+      'left.px': this.snake.column * 52,
+      'top.px': this.snake.row * 52,
+      transition: '1s',
+      background: 'red',
+      'border-radius': '50%'
+    }"
+  ></app-pion>
+  <app-pion
+    [ngStyle]="{
+      position: 'absolute',
+      'left.px': this.snake.column * 52,
+      'top.px': this.snake.row * 52,
+      transition: '0.1s',
+      background: 'blue',
+      'border-radius': '50%'
+    }"
+  ></app-pion>
+</div>

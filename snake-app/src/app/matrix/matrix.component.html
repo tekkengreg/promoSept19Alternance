@@ -1,0 +1,23 @@
+<div class="matrix">
+  <div *ngFor="let row of snakeService.rows; let i = index" class="rows">
+    <div
+      *ngFor="let column of snakeService.columns; let j = index"
+      class="columns"
+    >
+      <app-cell [isActive]="isActiveCell(i, j)"></app-cell>
+    </div>
+  </div>
+  <app-pion
+    [ngStyle]="{
+      position: 'absolute',
+      'left.px': snakeService.snake.column * 52,
+      'top.px': snakeService.snake.row * 52,
+      transition: '1s',
+      width: '52px',
+      height: '52px',
+      'border-radius': '50%',
+      background: 'aliceblue',
+      'box-shadow': 'grey 0px 0px 5px'
+    }"
+  ></app-pion>
+</div>
