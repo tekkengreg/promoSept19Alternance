@@ -1,4 +1,8 @@
 <div class="matrix">
+  <!-- <h2 [ngStyle]="{
+    position: 'fixed',
+    top: 0
+  }">{{userService.user.firstname}} {{userService.user.lastname}}</h2> -->
   <div *ngFor="let row of snakeService.rows; let i = index" class="rows">
     <div
       *ngFor="let column of snakeService.columns; let j = index"

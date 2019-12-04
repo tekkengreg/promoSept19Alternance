@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class SnakeService {
     row: 0,
     column: 0,
   }
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   updateSnakePosition = (direction) => {
     const { snake } = this;
@@ -18,6 +19,10 @@ export class SnakeService {
       case "ArrowUp":
         snake.row--
         if (snake.row < 0) snake.row = 0;
+        this.http.get<any>('http://localhost:5000/helloworld').subscribe(
+          data => console.log(data),
+          err => console.log(err)
+        );
         break;
 
       case "ArrowDown":
