@@ -1,0 +1,34 @@
+<div class="container">
+  <br />
+  <div class="message">
+    <form>
+      <div style="color: white;">
+        {{username}}
+      </div>
+      <div *ngFor="let u of users"  style="color: grey;">
+        <div *ngIf="u !== username">
+          {{u}}
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="messages">
+    <ul>
+      <li *ngFor="let m of messages" [style.text-align]="m.username===username?'end':'start'" >
+        {{ m.content }} - <span>{{m.username}}</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="message">
+    <form>
+      <div>
+        <input matInput name="message" [(ngModel)]="message.content" />
+
+        <button type="submit" mat-mini-fab color="accent" (click)="send()">
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>  
+    </form>
+  </div>
+</div>
